@@ -130,7 +130,7 @@ let s:_lightline = {
       \     'n': 'NORMAL', 'i': 'INSERT', 'R': 'REPLACE', 'v': 'VISUAL', 'V': 'V-LINE', "\<C-v>": 'V-BLOCK',
       \     'c': 'COMMAND', 's': 'SELECT', 'S': 'S-LINE', "\<C-s>": 'S-BLOCK', 't': 'TERMINAL'
       \   },
-      \   'separator': { 'left': '', 'right': '' },
+      \   'separator': { 'left': '  ', 'right': '  ' },
       \   'subseparator': { 'left': '|', 'right': '|' },
       \   'tabline_separator': {},
       \   'tabline_subseparator': {},
@@ -305,7 +305,7 @@ endfunction
 
 function! lightline#concatenate(xs, right) abort
   let separator = a:right ? s:lightline.subseparator.right : s:lightline.subseparator.left
-  return join(filter(copy(a:xs), 'v:val !=# ""'), ' ' . separator . ' ')
+  return join(filter(copy(a:xs), 'v:val !=# ""'), separator)
 endfunction
 
 function! lightline#statusline(inactive) abort
